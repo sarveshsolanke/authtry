@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "804724799019",
+    "project_id": "regapp-d79da",
+    "storage_bucket": "regapp-d79da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804724799019:android:6284740fc1481bbbbe5c6e",
+        "android_client_info": {
+          "package_name": "com.example.authapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804724799019-7a0q7htt8cku7q5cohbc4fovf3bd22pn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmSkDa9JmNvsWDLqULgvis_FgvfpZTuPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804724799019-7a0q7htt8cku7q5cohbc4fovf3bd22pn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
