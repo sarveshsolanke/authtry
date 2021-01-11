@@ -27,21 +27,33 @@ ProgressBar pbar;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        alreg=findViewById(R.id.textView2);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reg);
+
+//        alreg=findViewById(R.id.textreg);
+//        alreg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
         name=findViewById(R.id.fullname);
         email=findViewById(R.id.lemail);
         phone=findViewById(R.id.phone);
         password=findViewById(R.id.lpassword);
-        btn=findViewById(R.id.lb);
+
         mAuth = FirebaseAuth.getInstance();
         pbar=findViewById(R.id.progressBar);
-        if(mAuth.getCurrentUser()!=null){   startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        if(mAuth.getCurrentUser()!=null){   startActivity(new Intent(getApplicationContext(),firstpage.class));
         finish();
 
         }
-btn.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
+    }
+    public void aaal(View v){Intent activityChangeIntent = new Intent(reg.this, login.class);
+        reg.this.startActivity(activityChangeIntent);}
+
+    public void hello(View view) {
+
         String uemail=email.getText().toString().trim();
         String upass=password.getText().toString().trim();
         if(TextUtils.isEmpty(uemail))
@@ -53,20 +65,17 @@ btn.setOnClickListener(new View.OnClickListener() {
         mAuth.createUserWithEmailAndPassword(uemail,upass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-             if(task.isSuccessful()){
-                 Toast.makeText(reg.this,"Registration Sucessful", Toast.LENGTH_SHORT).show();
-                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
-             }
-             else
-             {
-                 Toast.makeText(reg.this,"Error poped"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-             }
+                if(task.isSuccessful()){
+                    Toast.makeText(reg.this,"Registration Sucessful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),login.class));
+                }
+                else
+                {
+                    Toast.makeText(reg.this,"Error poped"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-    }
-});
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg);
+
     }
 }
